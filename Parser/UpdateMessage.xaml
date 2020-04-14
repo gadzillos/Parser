@@ -1,0 +1,33 @@
+﻿<Window x:Class="Parser.UpdateMessage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Parser"
+        mc:Ignorable="d"
+        Title="UpdateMessage" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10" />
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="10" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="10" />
+        </Grid.RowDefinitions>
+        <DataGrid ItemsSource="{Binding Source=Changes}"  AutoGenerateColumns="False" FontSize="14" MaxColumnWidth="300"
+                  x:Name="ChangesGrid" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="3" Visibility="Visible" Margin="5,5,5,5"
+                  CanUserAddRows="False" CanUserDeleteRows="False" >
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding ThreatId}"/>
+                <DataGridTextColumn Header="Было" Binding="{Binding OldData}"/>
+                <DataGridTextColumn Header="Стало" Binding="{Binding NewData}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>

@@ -1,0 +1,63 @@
+﻿<Window x:Class="Parser.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Parser"
+        mc:Ignorable="d" FontFamily="Segoe UI Light" FontSize="22"
+        Title="Parser" Height="450" Width="525" Icon="/icons8_dragon.ico" Background="White" >
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10" />
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="10" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="10" />
+        </Grid.RowDefinitions>
+
+        <DataGrid ItemsSource="{Binding Source=Threats}"  AutoGenerateColumns="False" FontSize="14" MaxColumnWidth="300"
+                  x:Name="Table" Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="6" Visibility="Visible" Margin="5,5,5,5"
+                  CanUserAddRows="False" CanUserDeleteRows="False" >
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding ThreatId}"/>
+                <DataGridTextColumn Header="Наименование" Binding="{Binding ThreatName}"/>
+                <DataGridTextColumn Header="Описание" Binding="{Binding Description}"/>
+                <DataGridTextColumn Header="Источник" Binding="{Binding Source}"/>
+                <DataGridTextColumn Header="Объект воздействия" Binding="{Binding Target}"/>
+                <DataGridCheckBoxColumn Header="Нарушение конфиденциальности" Binding="{Binding ConfidentialityBreach}"/>
+                <DataGridCheckBoxColumn Header="Нарушение целостности" Binding="{Binding IntegrityViolation}"/>
+                <DataGridCheckBoxColumn Header="Нарушение доступности" Binding="{Binding AccessViolation}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <Button x:Name="ViewData" Grid.Column="1" Grid.Row="2" Content="View Data" 
+                Margin="5,0" Click="ViewData_Click" />
+
+        <Button x:Name="RefreshFile" Grid.Column="2" Grid.Row="2" Content="Refresh Data"
+                Margin="5,0" Click="RefreshFile_Click" />
+
+        <Button x:Name="PreviousPage" Grid.Column="3" Grid.Row="2" Content="Previous Page"
+                Margin="5,0" Click="PreviousPage_Click" Visibility="Collapsed"/>
+
+        <Button x:Name="NextPage" Grid.Column="4" Grid.Row="2" Content="Next Page"
+                Margin="5,0" Click="NextPage_Click" />
+
+        <Button x:Name="ViewMode" Grid.Column="5" Grid.Row="2" Content="ViewMode"
+                Margin="5,0" Click="ViewMode_Click" />
+
+        <ProgressBar x:Name="LoadProgress" Grid.Column="1" Grid.ColumnSpan="6" Grid.Row="4" 
+                     Visibility="Collapsed" MaxHeight="20" MinHeight="10"/>
+    </Grid>
+
+</Window>
