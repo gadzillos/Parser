@@ -38,7 +38,7 @@ namespace Parser
         public ObservableCollection<ThreatModel> oldThreats = new ObservableCollection<ThreatModel>();
         public ObservableCollection<ThreatModel> OldThreats
         {
-            get { return this.threats; }
+            get { return this.oldThreats; }
         }
         public MainWindow()
         {
@@ -81,11 +81,13 @@ namespace Parser
         {
             isUpdate = true;
             RefreshFile.Visibility = Visibility.Collapsed;
-            oldThreats = threats;
+            oldThreats = Threats;
             threats = new ObservableCollection<ThreatModel>();
             DownloadFile();
             Table.ItemsSource = null;
             Table.ItemsSource = Threats;
+            MessageBox.Show("Refresh: updateThreats.Count  " + updateThreats.Count
+                + "\n" + "Refresh: oldThreats.Count  " + oldThreats.Count);
             UpdateMessage update = new UpdateMessage();
             update.Show();
         }
@@ -138,6 +140,24 @@ namespace Parser
                 {
                     Table.Columns[i].Visibility = Visibility.Visible;
                 }
+            }
+        }
+
+        private void Save_Click(object sender, RoutedEventArgs e)
+        {
+            Microsoft.Win32.SaveFileDialog save = new Microsoft.Win32.SaveFileDialog();
+            save.FileName = "Thrlist"; // Default file name
+            save.DefaultExt = ".xlsx"; // Default file extension
+            save.Filter = "Text documents (.xlsx)|*.txt"; // Filter files by extension
+
+            // Show save file dialog box
+            Nullable<bool> result = save.ShowDialog();
+
+            // Process save file dialog box results
+            if (result == true)
+            {
+                // Save document
+                string filename = save.FileName;
             }
         }
     }
