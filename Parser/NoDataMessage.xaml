@@ -39,7 +39,7 @@
             <Button x:Name="LoadData" Grid.Column="1" Grid.Row="0" Content="Load data from server"
                     Margin="30,5" Opacity="0.5" FontFamily="Segoe UI Semilight" FontSize="14" Click="LoadData_Click"/>
             <Button x:Name="InitialCreate" Grid.Column="1" Grid.Row="1" Content="Create empty file"
-                    Margin="30,5" Opacity="0.5" FontFamily="Segoe UI Semilight" FontSize="14" Click="InitialCreate_Click"/>
+                    Margin="30,5" Opacity="0.5" FontFamily="Segoe UI Semilight" FontSize="14" Click="InitialCreate_Click" Visibility="Collapsed"/>
         </Grid>
         
         
