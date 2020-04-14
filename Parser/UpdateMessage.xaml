@@ -23,13 +23,14 @@
 
         <TextBlock x:Name="ThreatsChanged" Grid.Column="1" Grid.Row="1" Margin="5,5" Text="{Binding Source=totalThreatsChanged}" FontSize="22" />
 
-        <DataGrid ItemsSource="{Binding Source=Changes}"  AutoGenerateColumns="False" FontSize="14" MaxColumnWidth="300"
+        <DataGrid ItemsSource="{Binding Source=Changes}"  AutoGenerateColumns="False" FontSize="14"
                   x:Name="ChangesGrid" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="3" Visibility="Visible" Margin="5,5,5,5"
-                  CanUserAddRows="False" CanUserDeleteRows="False" >
+                  CanUserAddRows="False" CanUserDeleteRows="False" ColumnWidth="*">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="ID" Binding="{Binding ThreatId}"/>
-                <DataGridTextColumn Header="Было" Binding="{Binding OldData}"/>
-                <DataGridTextColumn Header="Стало" Binding="{Binding NewData}"/>
+                <DataGridTextColumn Header="ID" Binding="{Binding ThreatId}" Width="auto"/>
+                <DataGridTextColumn Header="Изменение" Binding="{Binding ChangedColumnName}" Width="auto"/>
+                <DataGridTextColumn Header="Было" Binding="{Binding OldData}" Width="*"/>
+                <DataGridTextColumn Header="Стало" Binding="{Binding NewData}" Width="*"/>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

@@ -45,6 +45,7 @@ namespace Parser
                             changes[j].ThreatId = item.ThreatId;
                             changes[j].OldData = item.ThreatName;
                             changes[j].NewData = changedThreats[i].ThreatName;
+                            changes[j].ChangedColumnName = "Наименование";
                             isChanged = true;
                             j++;
                         }
@@ -54,6 +55,7 @@ namespace Parser
                             changes[j].ThreatId = item.ThreatId;
                             changes[j].OldData = item.Description;
                             changes[j].NewData = changedThreats[i].Description;
+                            changes[j].ChangedColumnName = "Описание";
                             isChanged = true;
                             j++;
                         }
@@ -63,6 +65,7 @@ namespace Parser
                             changes[j].ThreatId = item.ThreatId;
                             changes[j].OldData = item.Source;
                             changes[j].NewData = changedThreats[i].Source;
+                            changes[j].ChangedColumnName = "Источник";
                             isChanged = true;
                             j++;
                         }
@@ -72,6 +75,7 @@ namespace Parser
                             changes[j].ThreatId = item.ThreatId;
                             changes[j].OldData = item.Target;
                             changes[j].NewData = changedThreats[i].Target;
+                            changes[j].ChangedColumnName = "Объект";
                             isChanged = true;
                             j++;
                         }
@@ -81,6 +85,7 @@ namespace Parser
                             changes[j].ThreatId = item.ThreatId;
                             changes[j].OldData = item.ConfidentialityBreach.ToString();
                             changes[j].NewData = changedThreats[i].ConfidentialityBreach.ToString();
+                            changes[j].ChangedColumnName = "Нарушение\nконфиденциальности";
                             isChanged = true;
                             j++;
                         }
@@ -90,6 +95,7 @@ namespace Parser
                             changes[j].ThreatId = item.ThreatId;
                             changes[j].OldData = item.IntegrityViolation.ToString();
                             changes[j].NewData = changedThreats[i].IntegrityViolation.ToString();
+                            changes[j].ChangedColumnName = "Нарушение\nцелосности";
                             isChanged = true;
                             j++;
                         }
@@ -99,6 +105,7 @@ namespace Parser
                             changes[j].ThreatId = item.ThreatId;
                             changes[j].OldData = item.AccessViolation.ToString();
                             changes[j].NewData = changedThreats[i].AccessViolation.ToString();
+                            changes[j].ChangedColumnName = "Нарушение\nдоступности";
                             isChanged = true;
                             j++;
                         }
