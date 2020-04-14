@@ -96,7 +96,7 @@ namespace Parser
             }
             catch (IOException)
             {
-                MessageBox.Show("Refresh button needs to rest...");
+                MessageBox.Show("Refresh button needs to rest... Please try again");
             }
             catch (UnauthorizedAccessException)
             {
@@ -104,8 +104,7 @@ namespace Parser
             }
             catch (Exception)
             {
-                MessageBox.Show("We made a little whoopsie --- Already fixing!");
-                ParseXlsx();
+                MessageBox.Show("We made a little whoopsie --- Already fixing! \n Please try again");
             }
             finally
             {

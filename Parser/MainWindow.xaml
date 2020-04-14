@@ -58,7 +58,7 @@
                 Margin="5,0" Click="ViewMode_Click" />
 
         <Button x:Name="Save" Grid.Column="6" Grid.Row="2" Content="Save"
-                Margin="5,0" Click="Save_Click" />
+                Margin="5,0" Click="Save_Click" Visibility="Collapsed" />
 
         <ProgressBar x:Name="LoadProgress" Grid.Column="1" Grid.ColumnSpan="6" Grid.Row="4" 
                      Visibility="Collapsed" MaxHeight="20" MinHeight="10"/>

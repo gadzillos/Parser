@@ -28,24 +28,19 @@ namespace Parser
         public UpdateMessage()
         {
             InitializeComponent();
-            MessageBox.Show("changedThreats:  " + changedThreats.Count
-                + "\n" + "previousThreats" + previousThreats.Count);
             int totalThreatsChanged = 0;
             bool isChanged = false;
             int i = 0;
             int j = 0;
             int k = (changedThreats.Count > 0) ? changedThreats.Count - 1 : -1;
-            MessageBox.Show(changedThreats.Count + "  changedThreats.count");
             if (k > -1)
             {
-                MessageBox.Show("changedThreats.Count > 0");
                 foreach (var item in previousThreats)
                 {
                     if (item.ThreatId == changedThreats[i].ThreatId)
                     {
                         if (item.ThreatName != changedThreats[i].ThreatName)
                         {
-                            MessageBox.Show("Works!");
                             changes.Add(new DifferenceModel());
                             changes[j].ThreatId = item.ThreatId;
                             changes[j].OldData = item.ThreatName;
@@ -122,12 +117,13 @@ namespace Parser
             }
             if (changedThreats.Count > previousThreats.Count)
             {
-                j = previousThreats.Count;
+                i = previousThreats.Count;
                 k = changedThreats.Count;
-                for (int l = j; l < k; l++)
+                j = changes.Count - 1;
+                for (int l = i; l < k; l++)
                 {
-                    changes.Add(new DifferenceModel());
                     j++;
+                    changes.Add(new DifferenceModel());
                     changes[j].ThreatId = changedThreats[l].ThreatId;
                     changes[j].OldData = "";
                     changes[j].NewData = "This threat was added";
@@ -135,7 +131,8 @@ namespace Parser
             }
             ChangesGrid.ItemsSource = null;
             ChangesGrid.ItemsSource = Changes;
-            MessageBox.Show("totalThreatsChanged  " + totalThreatsChanged);
+            ThreatsChanged.Text = null;
+            ThreatsChanged.Text = "Total threats changed   " + totalThreatsChanged.ToString();
         }
     }
 }

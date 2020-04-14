@@ -86,8 +86,7 @@ namespace Parser
             DownloadFile();
             Table.ItemsSource = null;
             Table.ItemsSource = Threats;
-            MessageBox.Show("Refresh: updateThreats.Count  " + updateThreats.Count
-                + "\n" + "Refresh: oldThreats.Count  " + oldThreats.Count);
+            MessageBox.Show("Downloaded");
             UpdateMessage update = new UpdateMessage();
             update.Show();
         }
