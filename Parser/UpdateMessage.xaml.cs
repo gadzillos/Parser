@@ -32,7 +32,6 @@ namespace Parser
             int i = 0;
             int j = 0;
             int k = (changedThreats.Count > 0) ? changedThreats.Count - 1 : 0;
-            MessageBox.Show("changedThreats.Count " + changedThreats.Count + "((MainWindow)Application.Current.MainWindow).oldThreats  " + ((MainWindow)Application.Current.MainWindow).oldThreats.Count );
             foreach (var item in ((MainWindow)Application.Current.MainWindow).oldThreats)
             {
                 if (item.ThreatId == changedThreats[i].ThreatId)
